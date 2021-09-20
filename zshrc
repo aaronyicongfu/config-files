@@ -138,3 +138,6 @@ export PYTHONPATH=${PYTHONPATH}:~/git/paropt
 export PYTHONPATH=${PYTHONPATH}:~/git/tmr
 export PYTHONPATH=${PYTHONPATH}:~/git/egads4py
 
+# Python bins
+export PATH=/Users/yicongfu/Library/Python/3.8/bin:${PATH}
+
