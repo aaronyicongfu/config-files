@@ -47,7 +47,7 @@ esac
 # Define some colors
 COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
-COLOR_GREEN="\033[01;32m"
+COLOR_GREEN="\033[0;32m"
 COLOR_OCHRE="\033[38;5;95m"
 COLOR_BLUE="\033[0;34m"
 COLOR_WHITE="\033[0;37m"
@@ -105,7 +105,7 @@ if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:' # username@hostname:
     PS1="\[\$(git_color)\]"        # colors git status
-    PS1+="\$(git_branch) "           # prints current branch
+    PS1+="\$(git_branch)"           # prints current branch
     PS1+='\[\033[01;34m\]\w\[\033[00m\]\$ ' # pwd$
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -237,8 +237,9 @@ set -o vi
 # Some node.js stuff to fix an issue from pyright
 export NODE\_OPTIONS=--experimental-worker
 
-# PS1="\[$COLOR_WHITE\]\n[\W]"          # basename of pwd
-# PS1+="\[\$(git_color)\]"        # colors git status
-# PS1+="\$(git_branch)"           # prints current branch
-# PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
-# export PS1
+# SU2 variables
+export SU2_HOME=$HOME/git/SU2
+export SU2_RUN=$HOME/git/SU2/bin
+export PATH=$PATH:$SU2_RUN
+export PYTHONPATH=$PYTHONPATH:$SU2_RUN
+
