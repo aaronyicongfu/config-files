@@ -104,9 +104,11 @@ fi
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:' # username@hostname:
-    PS1="\[\$(git_color)\]"        # colors git status
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]:' # hostname:
+    PS1+='\[\033[01;34m\]\w'        # pwd
+    PS1+="\[\$(git_color)\]"        # colors git status
     PS1+="\$(git_branch)"           # prints current branch
-    PS1+='\[\033[01;34m\]\w\[\033[00m\]\$ ' # pwd$
+    PS1+='\[\033[00m\]\$ '          # $
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
