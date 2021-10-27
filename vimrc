@@ -121,3 +121,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " Show number of matches when searching
 set shortmess-=S
+
+" Split to the right(vsp) and below(sp)
+set splitright
+set splitbelow
