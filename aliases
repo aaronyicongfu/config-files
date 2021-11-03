@@ -7,6 +7,7 @@ alias pip=pip3
 alias sudo='sudo '
 alias diskspace='du -h --max-depth=1'
 alias gs='git status'
+alias gd='git diff'
 alias gl='git log'
 alias sl='ls'
 alias mv='mv -i'
