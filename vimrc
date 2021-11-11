@@ -1,14 +1,3 @@
-" Some notes:
-" A standalong plugin manager is no longer needed since Vim 8.0
-" To install plugin, simply put plugins (e.g. via git clone) to
-" ~/.vim/pack/vendor/start/
-"
-" A list of plugin used:
-" - ctrlp
-
-
-" If you open this file in Vim, it'll be syntax highlighted for you.
-         
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -125,3 +114,4 @@ set shortmess-=S
 " Split to the right(vsp) and below(sp)
 set splitright
 set splitbelow
+
