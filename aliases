@@ -26,3 +26,9 @@ alias pace='ssh yfu97@login-phoenix.pace.gatech.edu'
 alias pace-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix.pace.gatech.edu'
 alias coc-ice='ssh yfu97@coc-ice.pace.gatech.edu'
 alias coc-ice-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@coc-ice.pace.gatech.edu'
+
+# alias vim to nvim if nvim exists
+if command -v nvim &> /dev/null
+then
+  alias vim=nvim
+fi
