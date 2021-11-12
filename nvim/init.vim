@@ -1,6 +1,5 @@
 " Load vim config
 source ~/.vimrc
-
 " We want to use vim-plug to manage the plugins for neovim,
 " the following code automates installation of vim-plug:
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -18,6 +17,10 @@ Plug 'airblade/vim-gitgutter'  " Show git diff
 Plug 'preservim/nerdtree'  " File explorer
 Plug 'jistr/vim-nerdtree-tabs'  " Keep NERDTree when switching tabs
 Plug 'Xuyuanp/nerdtree-git-plugin'  " Show git info in nerdtree
+"Plug 'neovim/nvim-lspconfig'  " config for nvim's Language Server Protocol
+"Plug 'hrsh7th/nvim-cmp'  " General-purpose autocompletion, recommended by nvim-lspconfig
+"Plug 'hrsh7th/cmp-buffer'  " nvim-cmp source for buffer words
+Plug 'dense-analysis/ale'  " seems to be the ultimate autocompletion solution?
 call plug#end()
 
 " Write swap file to disk every 100ms, this is to accelerate
@@ -38,5 +41,21 @@ highlight GitGutterChangeDelete ctermfg=4
 " Open the tree and persist tabs by default
 let g:nerdtree_tabs_open_on_console_startup=1
 
+" [cmp-buffer]
+"lua << EOF
+"require'cmp'.setup {
+"  sources = {
+"    { name = 'buffer' }
+"  }
+"}
+"EOF
 
-
+" [ALE]
+" need do: pip install flake8 black
+let g:ale_linters = {'python':['flake8']}
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'python': ['black']
+\  }
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
