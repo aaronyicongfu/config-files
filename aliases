@@ -31,4 +31,5 @@ alias coc-ice-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@coc-ice.pace.gatech.edu
 if command -v nvim &> /dev/null
 then
   alias vim=nvim
+  alias vv='nvim ~/.config/nvim/init.vim'
 fi
