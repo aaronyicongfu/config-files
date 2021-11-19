@@ -55,8 +55,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " to install pyright, need do: sudo npm install -g pyright
 let g:ale_linters = {'python':['flake8', 'pyright']}
 let g:ale_fixers = {
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'python': ['black']
+\ '*': ['remove_trailing_lines', 'trim_whitespace']
 \  }
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
