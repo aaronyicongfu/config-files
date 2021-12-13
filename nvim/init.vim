@@ -53,7 +53,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " [ALE]
 " to install flake8 and black, need do: pip install flake8 black
 " to install pyright, need do: sudo npm install -g pyright
-let g:ale_linters = {'python':['flake8', 'pyright']}
+let g:ale_linters = {'python':['pyright']}
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace']
 \  }
