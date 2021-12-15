@@ -230,7 +230,8 @@ set -o vi
 # remap capslock as second esc
 # setxkbmap -option caps:escape
 # The previous command is not used anymore, instead,
-# using dconf-editor to permanently swap esc <-> capslock,
+# using dconf-editor (sudo apt install dconf-editor)
+# to permanently swap esc <-> capslock,
 # which can be done by the following:
 # open dconf-editor, go to org/gnome/desktop/input-sources,
 # in xkb-options, put 'caps:swapescape' in custom value to swap,
