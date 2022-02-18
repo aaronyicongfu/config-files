@@ -14,9 +14,9 @@ endif
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'  " Ctrl-p fuzzy finder
 Plug 'airblade/vim-gitgutter'  " Show git diff
-Plug 'preservim/nerdtree'  " File explorer
-Plug 'jistr/vim-nerdtree-tabs'  " Keep NERDTree when switching tabs
-Plug 'Xuyuanp/nerdtree-git-plugin'  " Show git info in nerdtree
+"Plug 'preservim/nerdtree'  " File explorer
+"Plug 'jistr/vim-nerdtree-tabs'  " Keep NERDTree when switching tabs
+"Plug 'Xuyuanp/nerdtree-git-plugin'  " Show git info in nerdtree
 "Plug 'neovim/nvim-lspconfig'  " config for nvim's Language Server Protocol
 "Plug 'hrsh7th/nvim-cmp'  " General-purpose autocompletion, recommended by nvim-lspconfig
 "Plug 'hrsh7th/cmp-buffer'  " nvim-cmp source for buffer words
