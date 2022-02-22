@@ -139,9 +139,8 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alFh'
-alias l='ls -alFh'
-alias la='ls -A'
+alias ll='ls -valFh'
+alias la='ls -vA'
 # alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -245,4 +244,3 @@ export SU2_HOME=$HOME/git/SU2
 export SU2_RUN=$HOME/git/SU2/bin
 export PATH=$PATH:$SU2_RUN
 export PYTHONPATH=$PYTHONPATH:$SU2_RUN
-
