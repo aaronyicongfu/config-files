@@ -1,7 +1,7 @@
 # ===== Global aliases =====
 
 # Basics
-alias l='ls -vlah --group-directories-first'
+alias l='ls -vlah'
 alias python=python3
 alias pip=pip3
 alias sudo='sudo '
@@ -19,6 +19,8 @@ alias .....='cd ../../../..'
 # alias open=xdg-open
 alias vb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
+alias vz='vim ~/.zshrc'
+alias sz='source ~/.zshrc'
 
 # some SSH
 alias office='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-405029.ae.gatech.edu'
