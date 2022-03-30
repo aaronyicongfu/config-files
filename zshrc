@@ -117,6 +117,7 @@ source $ZSH/oh-my-zsh.sh
 
 # vim key binding
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 # Share history in multiple zsh sessions
 setopt share_history
