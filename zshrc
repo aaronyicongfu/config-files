@@ -115,6 +115,12 @@ source $ZSH/oh-my-zsh.sh
 #          Below are configurations customized by user             #
 # ================================================================ #
 
+# vim key binding
+bindkey -v
+
+# Share history in multiple zsh sessions
+setopt share_history
+
 # Load local zshrc if there's any
 if [ -f ~/.zshrc_local ]; then
   source ~/.zshrc_local
@@ -130,7 +136,6 @@ if [ -f ~/.aliases_local ]; then
   source ~/.aliases_local
 fi
 
-
 # Export tacs, paropt and egads directories
 export TACS_DIR=$HOME/git/tacs
 export PAROPT_DIR=$HOME/git/paropt
@@ -144,6 +149,12 @@ export PYTHONPATH=${PYTHONPATH}:~/git/tacs
 export PYTHONPATH=${PYTHONPATH}:~/git/paropt
 export PYTHONPATH=${PYTHONPATH}:~/git/tmr
 export PYTHONPATH=${PYTHONPATH}:~/git/egads4py
+
+# OpenCASCADE/ESP vars
+export CASROOT=$HOME/packages/OpenCASCADE
+export CASARCH=
+export PATH=$CASROOT/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CASROOT/lib
 
 # Python bins
 export PATH=${HOME}/Library/Python/3.8/bin:${PATH}
