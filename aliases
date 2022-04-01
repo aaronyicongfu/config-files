@@ -4,6 +4,7 @@
 alias l='ls -vlah'
 alias python=python3
 alias pip=pip3
+alias pdb=pbd3
 alias sudo='sudo '
 alias diskspace='du -h --max-depth=1'
 alias gs='git status'
