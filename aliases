@@ -1,7 +1,7 @@
 # ===== Global aliases =====
 
 # Basics
-alias l='ls -vlah'
+alias l='ls -vlah --group-directories-first'
 alias python=python3
 alias pip=pip3
 alias pdb=pbd3
