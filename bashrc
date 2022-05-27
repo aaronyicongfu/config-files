@@ -244,3 +244,7 @@ export SU2_HOME=$HOME/git/SU2
 export SU2_RUN=$HOME/git/SU2/bin
 export PATH=$PATH:$SU2_RUN
 export PYTHONPATH=$PYTHONPATH:$SU2_RUN
+
+# CUDA
+export PATH=/usr/local/cuda-11.6/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}

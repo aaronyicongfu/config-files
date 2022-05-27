@@ -7,9 +7,10 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 fi
 
 # Basics
-alias l='ls -vlah'
+alias l='ls -vlah --group-directories-first'
 alias python=python3
 alias pip=pip3
+alias pdb=pbd3
 alias sudo='sudo '
 alias diskspace='du -h --max-depth=1'
 alias gs='git status'
