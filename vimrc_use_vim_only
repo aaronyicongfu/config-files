@@ -91,7 +91,7 @@ set mouse+=a
 if has("autocmd")
   au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
   au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' | 
+    \ if v:insertmode == 'i' |
     \   silent execute '!echo -ne "\e[6 q"' | redraw! |
     \ elseif v:insertmode == 'r' |
     \   silent execute '!echo -ne "\e[4 q"' | redraw! |
@@ -135,7 +135,7 @@ Plug 'airblade/vim-gitgutter'  " Show git diff
 "Plug 'neovim/nvim-lspconfig'  " config for nvim's Language Server Protocol
 "Plug 'hrsh7th/nvim-cmp'  " General-purpose autocompletion, recommended by nvim-lspconfig
 "Plug 'hrsh7th/cmp-buffer'  " nvim-cmp source for buffer words
-"Plug 'dense-analysis/ale'  " seems to be the ultimate autocompletion solution?
+Plug 'dense-analysis/ale'  " seems to be the ultimate autocompletion solution?
 call plug#end()
 
 " Write swap file to disk every 100ms, this is to accelerate
@@ -168,9 +168,10 @@ highlight GitGutterChangeDelete ctermfg=4
 " [ALE]
 " to install flake8 and black, need do: pip install flake8 black
 " to install pyright, need do: sudo npm install -g pyright
-" let g:ale_linters = {'python':['pyright']}
-" let g:ale_fixers = {
-" \ '*': ['remove_trailing_lines', 'trim_whitespace']
-" \  }
-" let g:ale_fix_on_save = 1
+let g:ale_linters = {'python':['pyright']}
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'python': ['black']
+\  }
+let g:ale_fix_on_save = 1
 " let g:ale_completion_enabled = 1

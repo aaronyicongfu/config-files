@@ -1,5 +1,11 @@
 # ===== Global aliases =====
 
+# Use GNU utilities for mac
+if [[ $OSTYPE == 'darwin'* ]]; then
+  alias ls='gls --color=auto --group-directories-first'
+  alias du='gdu'
+fi
+
 # Basics
 alias l='ls -vlah'
 alias python=python3
@@ -9,7 +15,6 @@ alias diskspace='du -h --max-depth=1'
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
-alias sl='ls'
 alias mv='mv -i'
 alias wf='watch -d -n 0.1 ls -lh'
 alias ..='cd ..'
