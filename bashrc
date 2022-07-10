@@ -216,8 +216,8 @@ export PYTHONPATH=${PYTHONPATH}:~/git/struct_opt_benchmarks
 # export PYTHONPATH=~/Programs/ParaView/lib:${PYTHONPATH}
 
 # Updage PATH
-export PATH=~/bin:$PATH
-export PATH=~/.local/bin:$PATH
+# export PATH=~/.local/bin:$PATH
+# export PATH=~/bin:$PATH
 
 # Ipopt directories
 export IPOPT_DIR=$HOME/packages/Ipopt
