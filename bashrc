@@ -212,6 +212,8 @@ export PYTHONPATH=${PYTHONPATH}:~/git/paropt
 export PYTHONPATH=${PYTHONPATH}:~/git/tmr
 export PYTHONPATH=${PYTHONPATH}:~/git/egads4py
 export PYTHONPATH=${PYTHONPATH}:~/git/struct_opt_benchmarks
+# export PYTHONPATH=${PYTHONPATH}:~/git/a2d
+export PYTHONPATH=${PYTHONPATH}:~/toys/a2d
 # export PYTHONPATH=~/Programs/ParaView/lib/python3.7/site-packages:{$PYTHONPATH}
 # export PYTHONPATH=~/Programs/ParaView/lib:${PYTHONPATH}
 
