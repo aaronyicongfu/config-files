@@ -212,12 +212,14 @@ export PYTHONPATH=${PYTHONPATH}:~/git/paropt
 export PYTHONPATH=${PYTHONPATH}:~/git/tmr
 export PYTHONPATH=${PYTHONPATH}:~/git/egads4py
 export PYTHONPATH=${PYTHONPATH}:~/git/struct_opt_benchmarks
+# export PYTHONPATH=${PYTHONPATH}:~/git/a2d
+export PYTHONPATH=${PYTHONPATH}:~/toys/a2d
 # export PYTHONPATH=~/Programs/ParaView/lib/python3.7/site-packages:{$PYTHONPATH}
 # export PYTHONPATH=~/Programs/ParaView/lib:${PYTHONPATH}
 
 # Updage PATH
-export PATH=~/.local/bin:$PATH
-export PATH=~/bin:$PATH
+# export PATH=~/.local/bin:$PATH
+# export PATH=~/bin:$PATH
 
 # Ipopt directories
 export IPOPT_DIR=$HOME/packages/Ipopt
@@ -248,3 +250,6 @@ export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 # CUDA
 export PATH=/usr/local/cuda-11.6/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-11.6/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# pyamgx
+export AMGX_DIR=/home/fyc/packages/AMGX
