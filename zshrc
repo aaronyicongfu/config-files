@@ -161,6 +161,12 @@ export CASARCH=
 export PATH=$CASROOT/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CASROOT/lib
 
+# Rust bin
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Local bin
+export PATH=$HOME/.local/bin:$PATH
+
 # Python bins
 # export PATH=${HOME}/Library/Python/3.8/bin:${PATH}
 
