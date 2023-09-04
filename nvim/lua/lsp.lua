@@ -53,11 +53,20 @@ null_ls.setup({
 -- ref: https://www.youtube.com/watch?v=_DnmphIwnjo
 local cmp = require('cmp')
 cmp.setup({
-  -- order is the automatic ranking for sources to show up!
-  -- you can configure: 
+  mapping = cmp.mapping.preset.insert({
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-CR>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        -- Accept currently selected item. Set `select` to `false` to only 
+        -- confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      }),
+  sources = {
+  -- order here reflects the order showing up in the pop-up window!
+  -- you can set: 
   --   max_item_count
   --   priority
-  sources = {
     {name = 'nvim_lua'},
     {name = 'nvim_lsp'},
     {name = 'path'},
