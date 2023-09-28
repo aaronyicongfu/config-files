@@ -13,9 +13,6 @@ alias l='ls -vlah --group-directories-first'
 # alias pdb=pbd3
 alias sudo='sudo '
 alias diskspace='du -h --max-depth=1'
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
 alias mv='mv -i'
 alias wf='watch -d -n 0.1 ls -lh'
 alias ..='cd ..'
@@ -33,6 +30,12 @@ alias vb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias vz='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
+
+# git related
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias gitprune='echo "pruning merged remote/local branches..." && git fetch -p && git branch -vv | awk "/: gone]/{print \$1}" | xargs git branch -d'
 
 # some SSH
 alias old_office='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-405029.ae.gatech.edu'
