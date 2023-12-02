@@ -150,6 +150,10 @@ export PYTHONPATH=${PYTHONPATH}:~/git/tacs
 export PYTHONPATH=${PYTHONPATH}:~/git/paropt
 export PYTHONPATH=${PYTHONPATH}:~/git/tmr
 export PYTHONPATH=${PYTHONPATH}:~/git/egads4py
+export PYTHONPATH=${PYTHONPATH}:~/git/a2d
+export PYTHONPATH=${PYTHONPATH}:~/git/mma4py
+export PYTHONPATH=${PYTHONPATH}:~/git/pyImpact
+export PYTHONPATH=${PYTHONPATH}:~/packages/snopt-python
 
 # OpenCASCADE/ESP vars
 export CASROOT=$HOME/packages/OpenCASCADE
@@ -157,8 +161,35 @@ export CASARCH=
 export PATH=$CASROOT/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CASROOT/lib
 
+# Rust bin
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Local bin
+export PATH=$HOME/.local/bin:$PATH
+
 # Python bins
-export PATH=${HOME}/Library/Python/3.8/bin:${PATH}
+# export PATH=${HOME}/Library/Python/3.8/bin:${PATH}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Include path for OpenMP
+export CPLUS_INCLUDE_PATH=/opt/homebrew/Cellar/libomp/14.0.0/include
+
+# Library path for OpenMP
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/Cellar/libomp/14.0.0/lib
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

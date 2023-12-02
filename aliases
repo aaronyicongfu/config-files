@@ -8,14 +8,11 @@ fi
 
 # Basics
 alias l='ls -vlah --group-directories-first'
-alias python=python3
-alias pip=pip3
-alias pdb=pbd3
+# alias python=python3
+# alias pip=pip3
+# alias pdb=pbd3
 alias sudo='sudo '
 alias diskspace='du -h --max-depth=1'
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
 alias mv='mv -i'
 alias wf='watch -d -n 0.1 ls -lh'
 alias ..='cd ..'
@@ -28,15 +25,28 @@ alias ........='cd ../../../../../../..'
 alias .........='cd ../../../../../../../..'
 alias ..........='cd ../../../../../../../../..'
 # alias open=xdg-open
+alias o='open .'
 alias vb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias vz='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
+# git related
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias gitprune='echo "pruning merged remote/local branches..." && git fetch -p && git branch -vv | awk "/: gone]/{print \$1}" | xargs git branch -d'
+
 # some SSH
-alias office='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-405029.ae.gatech.edu'
-alias pace='ssh yfu97@login-phoenix.pace.gatech.edu'
-alias pace-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix.pace.gatech.edu'
+alias old_office='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-405029.ae.gatech.edu'
+alias office='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-407103.ae.gatech.edu'
+alias office_sftp='sftp -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-407103.ae.gatech.edu'
+alias office2='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-407105.ae.gatech.edu'
+# alias pace='ssh yfu97@login-phoenix.pace.gatech.edu'
+# alias pace-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix.pace.gatech.edu'
+alias pace='ssh yfu97@login-phoenix-slurm.pace.gatech.edu'
+alias pace-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix-slurm.pace.gatech.edu'
+alias sftp-pace-jump='sftp -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix-slurm.pace.gatech.edu'
 alias coc-ice='ssh yfu97@coc-ice.pace.gatech.edu'
 alias coc-ice-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@coc-ice.pace.gatech.edu'
 

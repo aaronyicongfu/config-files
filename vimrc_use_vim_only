@@ -129,6 +129,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'  " Ctrl-p fuzzy finder
 Plug 'airblade/vim-gitgutter'  " Show git diff
+"Plug 'vim-autoformat/vim-autoformat'  "formatter
 "Plug 'preservim/nerdtree'  " File explorer
 "Plug 'jistr/vim-nerdtree-tabs'  " Keep NERDTree when switching tabs
 "Plug 'Xuyuanp/nerdtree-git-plugin'  " Show git info in nerdtree
@@ -171,7 +172,9 @@ highlight GitGutterChangeDelete ctermfg=4
 let g:ale_linters = {'python':['pyright']}
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'python': ['black']
+\ 'python': ['black'],
+\ 'cpp': ['clang-format']
 \  }
 let g:ale_fix_on_save = 1
+let g:ale_c_clangformat_options = ' --style=Google'
 " let g:ale_completion_enabled = 1
