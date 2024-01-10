@@ -193,3 +193,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export IPOPT_DIR=/Users/fyc/packages/Ipopt
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$IPOPT_DIR/lib
+
+# Julia
+export PATH=$PATH:/Applications/Julia-1.9.app/Contents/Resources/julia/bin
