@@ -56,3 +56,6 @@ then
   alias vim=nvim
   alias vv='nvim ~/.config/nvim/init.vim'
 fi
+
+# GNU info vim key binding
+alias info='info --vi-keys'
