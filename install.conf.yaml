@@ -4,3 +4,7 @@
 
 - link:
     ~/.tmux.conf: tmux.conf
+    ~/.vimrc: vimrc
+    ~/.bashrc: bashrc
+    ~/.aliases: aliases
+    ~/startup.m: startup.m
