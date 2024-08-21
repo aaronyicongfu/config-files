@@ -47,8 +47,8 @@ alias office2='ssh -J yfu97@ssh.ae.gatech.edu yfu97@AE-SMDO-407105.ae.gatech.edu
 alias pace='ssh yfu97@login-phoenix-slurm.pace.gatech.edu'
 alias pace-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix-slurm.pace.gatech.edu'
 alias sftp-pace-jump='sftp -J yfu97@ssh.ae.gatech.edu yfu97@login-phoenix-slurm.pace.gatech.edu'
-alias coc-ice='ssh yfu97@coc-ice.pace.gatech.edu'
-alias coc-ice-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@coc-ice.pace.gatech.edu'
+alias coc-ice='ssh yfu97@login-ice.pace.gatech.edu'
+alias coc-ice-jump='ssh -J yfu97@ssh.ae.gatech.edu yfu97@login-ice.pace.gatech.edu'
 
 # alias vim to nvim if nvim exists
 if command -v nvim &> /dev/null
