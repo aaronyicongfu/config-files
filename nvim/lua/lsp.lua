@@ -78,6 +78,7 @@ null_ls.setup({
 
 -- Set up autocompletion
 -- ref: https://www.youtube.com/watch?v=_DnmphIwnjo
+require('luasnip.loaders.from_vscode').lazy_load()
 local cmp = require('cmp')
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
@@ -89,6 +90,11 @@ cmp.setup({
         -- confirm explicitly selected items.
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }),
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
   sources = {
   -- order here reflects the order showing up in the pop-up window!
   -- you can set: 
@@ -98,5 +104,7 @@ cmp.setup({
     {name = 'nvim_lsp'},
     {name = 'path'},
     {name = 'buffer', keyword_length = 5},
+    {name = 'luasnip'},
   },
 })
+

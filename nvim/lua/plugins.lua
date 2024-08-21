@@ -38,7 +38,9 @@ local plugins = {
     'hrsh7th/cmp-path',  -- complete file
     'hrsh7th/cmp-nvim-lua',  -- complete lua
     'hrsh7th/cmp-nvim-lsp',  -- talks to lsp
-    'saadparwaiz1/cmp_luasnip',  -- create lua snippets (TODO: find a similar plugin for cpp)
+    'L3MON4D3/LuaSnip',  -- lua snippet engine, required for autocompleting snippets
+    'saadparwaiz1/cmp_luasnip',
+    'rafamadriz/friendly-snippets',
 
     -- git integration
     'lewis6991/gitsigns.nvim',
@@ -47,12 +49,13 @@ local plugins = {
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
 
-
     -- statusline
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-    }
+    },
+
+    'cappyzawa/trim.nvim',
 
     -- Hightlight word under cursor (TODO: find a useable plugin)
 }
@@ -65,9 +68,9 @@ local opts = {
 -- Set up plugins
 require('lazy').setup(plugins, opts)
 
--- =========================
--- Set up individual plugins
--- =========================
+-- ==============================
+-- Set up some individual plugins
+-- ==============================
 
 require('gitsigns').setup()
 
@@ -78,9 +81,10 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors (24 bits color in TUI) to enable highlight groups
 vim.opt.termguicolors = true
 
+-- set up nvim-tree
 require('nvim-tree').setup()
 
--- lualine
+-- set up lualine
 require('lualine').setup({
   options = {
     icons_enabled = true,
@@ -97,4 +101,6 @@ require('lualine').setup({
   },
 })
 
+-- set up trim trailing whitespace
+require('trim').setup()
 

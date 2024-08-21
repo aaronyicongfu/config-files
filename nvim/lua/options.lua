@@ -1,6 +1,6 @@
 -- set vim options using a convenience neovim interface ``vim.opt''
 -- see ``:help options'' for more information about vim options
--- see ``:help vim.opt'' for more information about the neovim interface 
+-- see ``:help vim.opt'' for more information about the neovim interface
 
 -- ref: https://martinlwx.github.io/en/config-neovim-from-scratch/#the-basics
 
