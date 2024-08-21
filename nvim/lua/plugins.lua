@@ -47,6 +47,13 @@ local plugins = {
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
 
+
+    -- statusline
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    }
+
     -- Hightlight word under cursor (TODO: find a useable plugin)
 }
 
@@ -72,4 +79,22 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require('nvim-tree').setup()
+
+-- lualine
+require('lualine').setup({
+  options = {
+    icons_enabled = true,
+    theme = 'onedark',
+    component_separators = '|',
+    section_separators = '',
+  },
+  sections = {
+    lualine_a = {
+      {
+        'buffers',
+      },
+    },
+  },
+})
+
 

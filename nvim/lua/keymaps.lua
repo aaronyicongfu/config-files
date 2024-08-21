@@ -30,3 +30,15 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 builtin = nil
+
+-- move between buffers
+vim.keymap.set('n', 'bh', ':bprevious<Enter>', opts)
+vim.keymap.set('n', 'bj', ':bprevious<Enter>', opts)
+vim.keymap.set('n', 'bk', ':bnext<Enter>', opts)
+vim.keymap.set('n', 'bl', ':bnext<Enter>', opts)
+
+-- move between tabs
+vim.keymap.set('n', 'th', ':tabprevious<Enter>', opts)
+vim.keymap.set('n', 'tj', ':tabprevious<Enter>', opts)
+vim.keymap.set('n', 'tk', ':tabnext<Enter>', opts)
+vim.keymap.set('n', 'tl', ':tabnext<Enter>', opts)
