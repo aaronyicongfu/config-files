@@ -1,8 +1,7 @@
 -- Install lazy.nvim the plugin manager, if not already installed
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    'git',
+  vim.fn.system({ 'git',
     'clone',
     '--filter=blob:none',
     'https://github.com/folke/lazy.nvim.git',
@@ -55,6 +54,7 @@ local plugins = {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
 
+    -- trim trailing whitespace
     'cappyzawa/trim.nvim',
 
     -- Hightlight word under cursor (TODO: find a useable plugin)
@@ -103,4 +103,3 @@ require('lualine').setup({
 
 -- set up trim trailing whitespace
 require('trim').setup()
-

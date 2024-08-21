@@ -86,7 +86,7 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-CR>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        -- Accept currently selected item. Set `select` to `false` to only 
+        -- Accept currently selected item. Set `select` to `false` to only
         -- confirm explicitly selected items.
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }),
@@ -97,7 +97,7 @@ cmp.setup({
   },
   sources = {
   -- order here reflects the order showing up in the pop-up window!
-  -- you can set: 
+  -- you can set:
   --   max_item_count
   --   priority
     {name = 'nvim_lua'},
@@ -107,4 +107,3 @@ cmp.setup({
     {name = 'luasnip'},
   },
 })
-
