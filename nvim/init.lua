@@ -1,6 +1,6 @@
-require("plugins") -- we want to setup plugins first so that they can be 
-                   -- config-ed latter on
+require("plugins") -- setup plugins first so that they can be
+                   -- configured later on
 require("colorscheme")
-require("keymaps")  
+require("keymaps")
 require("lsp")
 require("options")
