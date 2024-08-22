@@ -61,7 +61,7 @@ local plugins = {
     'numToStr/Comment.nvim',
 
     -- auto-focus by resizing focused pane
-    'nvim-focus/focus.nvim',
+    -- 'nvim-focus/focus.nvim',
 }
 
 -- Specify options
@@ -113,34 +113,34 @@ require('Comment').setup()
 
 -- set up auto-focus and disable it for tree buffer:
 -- https://github.com/nvim-focus/focus.nvim?tab=readme-ov-file#disabling-focus
-require('focus').setup()
-local ignore_filetypes = { 'neo-tree' }
-local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
-
-local augroup =
-    vim.api.nvim_create_augroup('FocusDisable', { clear = true })
-
-vim.api.nvim_create_autocmd('WinEnter', {
-    group = augroup,
-    callback = function(_)
-        if vim.tbl_contains(ignore_buftypes, vim.bo.buftype)
-        then
-            vim.w.focus_disable = true
-        else
-            vim.w.focus_disable = false
-        end
-    end,
-    desc = 'Disable focus autoresize for BufType',
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-    group = augroup,
-    callback = function(_)
-        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
-            vim.b.focus_disable = true
-        else
-            vim.b.focus_disable = false
-        end
-    end,
-    desc = 'Disable focus autoresize for FileType',
-})
+-- require('focus').setup()
+-- local ignore_filetypes = { 'neo-tree' }
+-- local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
+--
+-- local augroup =
+--     vim.api.nvim_create_augroup('FocusDisable', { clear = true })
+--
+-- vim.api.nvim_create_autocmd('WinEnter', {
+--     group = augroup,
+--     callback = function(_)
+--         if vim.tbl_contains(ignore_buftypes, vim.bo.buftype)
+--         then
+--             vim.w.focus_disable = true
+--         else
+--             vim.w.focus_disable = false
+--         end
+--     end,
+--     desc = 'Disable focus autoresize for BufType',
+-- })
+--
+-- vim.api.nvim_create_autocmd('FileType', {
+--     group = augroup,
+--     callback = function(_)
+--         if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+--             vim.b.focus_disable = true
+--         else
+--             vim.b.focus_disable = false
+--         end
+--     end,
+--     desc = 'Disable focus autoresize for FileType',
+-- })

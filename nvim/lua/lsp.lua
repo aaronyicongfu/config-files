@@ -5,7 +5,7 @@ require('mason').setup()
 -- Ensure servers are there, if not, install them using mason
 require('mason-lspconfig').setup({
   -- install language servers
-  ensure_installed = {'lua_ls', 'pyright', 'clangd'},
+  ensure_installed = {'lua_ls', 'pyright', 'clangd', 'cmake'},
 })
 
 -- Ensure formatters are there, if not, install them using mason
@@ -51,6 +51,7 @@ lspconfig.clangd.setup{
     "--offset-encoding=utf-16",
   },
 }
+lspconfig.cmake.setup{}
 
 
 -- Create an autocmd group for (fos) formatting-on-save
