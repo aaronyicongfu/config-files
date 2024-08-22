@@ -1,4 +1,4 @@
--- Ref: https://martinlwx.github.io/en/config-neovim-from-scratch/#the-basics 
+-- Ref: https://martinlwx.github.io/en/config-neovim-from-scratch/#the-basics
 -- Hint: see `:h vim.keymap.set()`
 
 -- define common options
@@ -42,3 +42,6 @@ vim.keymap.set('n', 'th', ':tabprevious<Enter>', opts)
 vim.keymap.set('n', 'tj', ':tabprevious<Enter>', opts)
 vim.keymap.set('n', 'tk', ':tabnext<Enter>', opts)
 vim.keymap.set('n', 'tl', ':tabnext<Enter>', opts)
+
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<Enter>", opts)
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<Enter>", opts)

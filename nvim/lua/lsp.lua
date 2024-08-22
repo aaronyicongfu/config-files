@@ -45,7 +45,12 @@ lspconfig.lua_ls.setup{
   }
 }
 lspconfig.pyright.setup{}
-lspconfig.clangd.setup{}
+lspconfig.clangd.setup{
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
 
 
 -- Create an autocmd group for (fos) formatting-on-save
