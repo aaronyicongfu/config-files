@@ -37,6 +37,10 @@ vim.keymap.set('n', 'tj', ':bprevious<Enter>', opts)
 vim.keymap.set('n', 'tk', ':bnext<Enter>', opts)
 vim.keymap.set('n', 'tl', ':bnext<Enter>', opts)
 
+-- move between tabs
+vim.keymap.set('n', 'tn', ':tabnext<Enter>', opts)
+vim.keymap.set('n', 'tp', ':tabprevious<Enter>', opts)
+
 -- go to definition/declaration by LSP
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<Enter>", opts)
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<Enter>", opts)
