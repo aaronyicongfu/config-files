@@ -61,7 +61,7 @@ local plugins = {
     'numToStr/Comment.nvim',
 
     -- auto-focus by resizing focused pane
-    'nvim-focus/focus.nvim'
+    'nvim-focus/focus.nvim',
 }
 
 -- Specify options

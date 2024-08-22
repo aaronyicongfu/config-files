@@ -32,16 +32,11 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 builtin = nil
 
 -- move between buffers
-vim.keymap.set('n', 'bh', ':bprevious<Enter>', opts)
-vim.keymap.set('n', 'bj', ':bprevious<Enter>', opts)
-vim.keymap.set('n', 'bk', ':bnext<Enter>', opts)
-vim.keymap.set('n', 'bl', ':bnext<Enter>', opts)
+vim.keymap.set('n', 'th', ':bprevious<Enter>', opts)
+vim.keymap.set('n', 'tj', ':bprevious<Enter>', opts)
+vim.keymap.set('n', 'tk', ':bnext<Enter>', opts)
+vim.keymap.set('n', 'tl', ':bnext<Enter>', opts)
 
--- move between tabs
-vim.keymap.set('n', 'th', ':tabprevious<Enter>', opts)
-vim.keymap.set('n', 'tj', ':tabprevious<Enter>', opts)
-vim.keymap.set('n', 'tk', ':tabnext<Enter>', opts)
-vim.keymap.set('n', 'tl', ':tabnext<Enter>', opts)
-
+-- go to definition/declaration by LSP
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<Enter>", opts)
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<Enter>", opts)
