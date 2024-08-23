@@ -77,7 +77,7 @@ local null_ls = require('null-ls')
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.clang_format.with({extra_args={'-style=Google'}}),
+    null_ls.builtins.formatting.clang_format,
   },
   on_attach = fos_on_attach
 })
