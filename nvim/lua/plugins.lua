@@ -62,6 +62,11 @@ local plugins = {
 
     -- auto-focus by resizing focused pane
     -- 'nvim-focus/focus.nvim',
+    {
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+    },
+    'nvim-treesitter/nvim-treesitter-context',
 }
 
 -- Specify options
@@ -111,36 +116,27 @@ require('trim').setup()
 -- set up commenter
 require('Comment').setup()
 
--- set up auto-focus and disable it for tree buffer:
--- https://github.com/nvim-focus/focus.nvim?tab=readme-ov-file#disabling-focus
--- require('focus').setup()
--- local ignore_filetypes = { 'neo-tree' }
--- local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
---
--- local augroup =
---     vim.api.nvim_create_augroup('FocusDisable', { clear = true })
---
--- vim.api.nvim_create_autocmd('WinEnter', {
---     group = augroup,
---     callback = function(_)
---         if vim.tbl_contains(ignore_buftypes, vim.bo.buftype)
---         then
---             vim.w.focus_disable = true
---         else
---             vim.w.focus_disable = false
---         end
---     end,
---     desc = 'Disable focus autoresize for BufType',
--- })
---
--- vim.api.nvim_create_autocmd('FileType', {
---     group = augroup,
---     callback = function(_)
---         if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
---             vim.b.focus_disable = true
---         else
---             vim.b.focus_disable = false
---         end
---     end,
---     desc = 'Disable focus autoresize for FileType',
--- })
+-- set up treesitter
+
+require("nvim-treesitter.configs").setup {
+  -- A list of parser names, or "all"
+  ensure_installed = { 'c', 'cpp', 'python', 'bash', 'lua' },
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+  highlight = {
+    enable = true,
+  },
+  disable = function(lang, buf)
+    local max_filesize = 100 * 1024 -- 100 KB
+    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+    if ok and stats and stats.size > max_filesize then
+      return true
+    end
+  end,
+}
+
+require('treesitter-context').setup({
+    mode = 'topline',
+    multiline_threshold = 1,
+})
+vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline=true, special="Grey" })
