@@ -67,6 +67,9 @@ local plugins = {
       build = ':TSUpdate',
     },
     'nvim-treesitter/nvim-treesitter-context',
+
+    -- outline
+    'simrat39/symbols-outline.nvim',
 }
 
 -- Specify options
@@ -140,3 +143,42 @@ require('treesitter-context').setup({
     multiline_threshold = 1,
 })
 vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline=true, special="Grey" })
+
+-- set up outline view
+local symbols_outline_opt = {
+  keymaps = { -- These keymaps can be a string or a table for multiple keys
+    close = {"q"},
+    show_help = "?",
+  },
+  symbols = {
+    File = { icon = "", hl = "@text.uri" },
+    Module = { icon = "", hl = "@namespace" },
+    Namespace = { icon = "", hl = "@namespace" },
+    Package = { icon = "", hl = "@namespace" },
+    Class = { icon = "", hl = "@type" },
+    Method = { icon = "ƒ", hl = "@method" },
+    Property = { icon = "", hl = "@method" },
+    Field = { icon = "", hl = "@field" },
+    Constructor = { icon = "", hl = "@constructor" },
+    Enum = { icon = "", hl = "@type" },
+    Interface = { icon = "", hl = "@type" },
+    Function = { icon = "", hl = "@function" },
+    Variable = { icon = "", hl = "@constant" },
+    Constant = { icon = "", hl = "@constant" },
+    String = { icon = "", hl = "@string" },
+    Number = { icon = "#", hl = "@number" },
+    Boolean = { icon = "", hl = "@boolean" },
+    Array = { icon = "", hl = "@constant" },
+    Object = { icon = "", hl = "@type" },
+    Key = { icon = "", hl = "@type" },
+    Null = { icon = "", hl = "@type" },
+    EnumMember = { icon = "", hl = "@field" },
+    Struct = { icon = "", hl = "@type" },
+    Event = { icon = "", hl = "@type" },
+    Operator = { icon = "", hl = "@operator" },
+    TypeParameter = { icon = "", hl = "@parameter" },
+    Component = { icon = "", hl = "@function" },
+    Fragment = { icon = "", hl = "@constant" },
+  }
+}
+require("symbols-outline").setup(symbols_outline_opt)
