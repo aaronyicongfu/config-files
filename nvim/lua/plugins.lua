@@ -70,6 +70,12 @@ local plugins = {
 
     -- outline
     'simrat39/symbols-outline.nvim',
+
+    -- comment format
+    {
+        'danymat/neogen',
+        config = true,
+    }
 }
 
 -- Specify options

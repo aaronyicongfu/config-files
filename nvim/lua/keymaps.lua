@@ -44,3 +44,6 @@ vim.keymap.set('n', 'tp', ':tabprevious<Enter>', opts)
 -- go to definition/declaration by LSP
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<Enter>", opts)
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<Enter>", opts)
+
+-- open/close nvim-tree (´ is shift + option + e on Mac)
+vim.keymap.set("n", "´", ":NvimTreeToggle<Enter>", opts)
