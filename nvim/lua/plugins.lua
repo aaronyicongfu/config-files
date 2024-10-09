@@ -15,7 +15,8 @@ vim.g.mapleader = ' ' -- Make sure to set `mapleader` before lazy so your mappin
 
 -- Specify plugins
 local plugins = {
-    'navarasu/onedark.nvim',  -- color schemes, TODO: maybe try this: projekt0n/github-nvim-theme
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- 'navarasu/onedark.nvim',  -- color schemes, TODO: maybe try this: projekt0n/github-nvim-theme
     'nvim-lua/plenary.nvim',  -- seems to be a collection of lua utility functions
     {
         'nvim-telescope/telescope.nvim',  -- fuzzy finder
@@ -106,7 +107,7 @@ require('nvim-tree').setup()
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'catppuccin',
     component_separators = '|',
     section_separators = '',
   },
