@@ -47,3 +47,7 @@ vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<Enter>", opts)
 
 -- open/close nvim-tree (´ is shift + option + e on Mac)
 vim.keymap.set("n", "´", ":NvimTreeToggle<Enter>", opts)
+
+-- perform the forward/backward search without jump
+vim.keymap.set("n", "*", "*``", opts)
+vim.keymap.set("n", "#", "#``", opts)

@@ -77,6 +77,25 @@ local plugins = {
         'danymat/neogen',
         config = true,
     },
+
+    -- indent blank lines
+    'lukas-reineke/indent-blankline.nvim',
+
+    -- function signature
+    {
+      "ray-x/lsp_signature.nvim",
+      opts = {
+        bind = true,
+       handler_opts = {
+         border = "rounded"
+       },
+       hint_prefix = "→ "  -- Set the hint prefix to a right arrow
+      },
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
+    },
+
+    -- tabs
+    'romgrk/barbar.nvim',
 }
 
 -- Specify options
@@ -189,3 +208,7 @@ local symbols_outline_opt = {
   }
 }
 require("symbols-outline").setup(symbols_outline_opt)
+
+require("ibl").setup()
+
+require("lsp_signature").setup()
