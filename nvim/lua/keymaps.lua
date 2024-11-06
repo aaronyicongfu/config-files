@@ -32,10 +32,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
 builtin = nil
 
 -- move between buffers
-vim.keymap.set('n', 'th', ':bprevious<Enter>', opts)
-vim.keymap.set('n', 'tj', ':bprevious<Enter>', opts)
-vim.keymap.set('n', 'tk', ':bnext<Enter>', opts)
-vim.keymap.set('n', 'tl', ':bnext<Enter>', opts)
+vim.keymap.set('n', 'th', ':BufferPrevious<Enter>', opts)
+vim.keymap.set('n', 'tj', ':BufferPrevious<Enter>', opts)
+vim.keymap.set('n', 'tk', ':BufferNext<Enter>', opts)
+vim.keymap.set('n', 'tl', ':BufferNext<Enter>', opts)
 
 -- move between tabs
 vim.keymap.set('n', 'tn', ':tabnext<Enter>', opts)
@@ -51,3 +51,17 @@ vim.keymap.set("n", "´", ":NvimTreeToggle<Enter>", opts)
 -- perform the forward/backward search without jump
 vim.keymap.set("n", "*", "*``", opts)
 vim.keymap.set("n", "#", "#``", opts)
+
+-- jump between tabs
+vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
+vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
+vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
+vim.keymap.set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
+vim.keymap.set('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
+vim.keymap.set('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
+vim.keymap.set('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
+vim.keymap.set('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
+vim.keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)

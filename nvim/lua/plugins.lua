@@ -78,8 +78,8 @@ local plugins = {
         config = true,
     },
 
-    -- indent blank lines
-    'lukas-reineke/indent-blankline.nvim',
+    -- -- indent blank lines
+    -- 'lukas-reineke/indent-blankline.nvim',
 
     -- function signature
     {
@@ -209,6 +209,7 @@ local symbols_outline_opt = {
 }
 require("symbols-outline").setup(symbols_outline_opt)
 
-require("ibl").setup()
+-- indent blank lines
+-- require("ibl").setup()
 
 require("lsp_signature").setup()
