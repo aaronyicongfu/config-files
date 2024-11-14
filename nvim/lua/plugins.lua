@@ -70,7 +70,16 @@ local plugins = {
     'nvim-treesitter/nvim-treesitter-context',
 
     -- outline
-    'simrat39/symbols-outline.nvim',
+    -- 'simrat39/symbols-outline.nvim',
+    {
+      'stevearc/aerial.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter",
+         "nvim-tree/nvim-web-devicons"
+      },
+    },
 
     -- annotation generator
     {
@@ -96,6 +105,26 @@ local plugins = {
 
     -- tabs
     'romgrk/barbar.nvim',
+
+    -- which-key popup after pressing leader key (i.e. space bar)
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
+    }
 }
 
 -- Specify options
@@ -132,9 +161,21 @@ require('lualine').setup({
   },
   sections = {
     lualine_a = {
+      -- {
+      --   'buffers',
+      -- },
+    },
+    lualine_c = {
       {
-        'buffers',
+        'filename',
+        file_status = false,
+        path = 2,  -- show the absolute path
       },
+    },
+    lualine_x = {
+      'encoding',
+      -- 'fileformat',  -- unix, mac, etc. quite useless in my opinion
+      'filetype'
     },
   },
 })
@@ -171,45 +212,54 @@ require('treesitter-context').setup({
 vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline=true, special="Grey" })
 
 -- set up outline view
-local symbols_outline_opt = {
-  keymaps = { -- These keymaps can be a string or a table for multiple keys
-    close = {"q"},
-    show_help = "?",
-  },
-  symbols = {
-    File = { icon = "", hl = "@text.uri" },
-    Module = { icon = "", hl = "@namespace" },
-    Namespace = { icon = "", hl = "@namespace" },
-    Package = { icon = "", hl = "@namespace" },
-    Class = { icon = "", hl = "@type" },
-    Method = { icon = "ƒ", hl = "@method" },
-    Property = { icon = "", hl = "@method" },
-    Field = { icon = "", hl = "@field" },
-    Constructor = { icon = "", hl = "@constructor" },
-    Enum = { icon = "", hl = "@type" },
-    Interface = { icon = "", hl = "@type" },
-    Function = { icon = "", hl = "@function" },
-    Variable = { icon = "", hl = "@constant" },
-    Constant = { icon = "", hl = "@constant" },
-    String = { icon = "", hl = "@string" },
-    Number = { icon = "#", hl = "@number" },
-    Boolean = { icon = "", hl = "@boolean" },
-    Array = { icon = "", hl = "@constant" },
-    Object = { icon = "", hl = "@type" },
-    Key = { icon = "", hl = "@type" },
-    Null = { icon = "", hl = "@type" },
-    EnumMember = { icon = "", hl = "@field" },
-    Struct = { icon = "", hl = "@type" },
-    Event = { icon = "", hl = "@type" },
-    Operator = { icon = "", hl = "@operator" },
-    TypeParameter = { icon = "", hl = "@parameter" },
-    Component = { icon = "", hl = "@function" },
-    Fragment = { icon = "", hl = "@constant" },
-  }
-}
-require("symbols-outline").setup(symbols_outline_opt)
+-- local symbols_outline_opt = {
+--   keymaps = { -- These keymaps can be a string or a table for multiple keys
+--     close = {"q"},
+--     show_help = "?",
+--   },
+--   symbols = {
+--     File = { icon = "", hl = "@text.uri" },
+--     Module = { icon = "", hl = "@namespace" },
+--     Namespace = { icon = "", hl = "@namespace" },
+--     Package = { icon = "", hl = "@namespace" },
+--     Class = { icon = "", hl = "@type" },
+--     Method = { icon = "ƒ", hl = "@method" },
+--     Property = { icon = "", hl = "@method" },
+--     Field = { icon = "", hl = "@field" },
+--     Constructor = { icon = "", hl = "@constructor" },
+--     Enum = { icon = "", hl = "@type" },
+--     Interface = { icon = "", hl = "@type" },
+--     Function = { icon = "", hl = "@function" },
+--     Variable = { icon = "", hl = "@constant" },
+--     Constant = { icon = "", hl = "@constant" },
+--     String = { icon = "", hl = "@string" },
+--     Number = { icon = "#", hl = "@number" },
+--     Boolean = { icon = "", hl = "@boolean" },
+--     Array = { icon = "", hl = "@constant" },
+--     Object = { icon = "", hl = "@type" },
+--     Key = { icon = "", hl = "@type" },
+--     Null = { icon = "", hl = "@type" },
+--     EnumMember = { icon = "", hl = "@field" },
+--     Struct = { icon = "", hl = "@type" },
+--     Event = { icon = "", hl = "@type" },
+--     Operator = { icon = "", hl = "@operator" },
+--     TypeParameter = { icon = "", hl = "@parameter" },
+--     Component = { icon = "", hl = "@function" },
+--     Fragment = { icon = "", hl = "@constant" },
+--   }
+-- }
+-- require("symbols-outline").setup(symbols_outline_opt)
 
 -- indent blank lines
 -- require("ibl").setup()
 
 require("lsp_signature").setup()
+
+require("aerial").setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+  end,
+})
