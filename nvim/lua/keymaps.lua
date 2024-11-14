@@ -78,7 +78,8 @@ vim.keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
 vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 
 -- symbol outline
-vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", add_desc(opts, "toggle outline"))
+vim.keymap.set("n", "<leader>p", "<cmd>AerialNavToggle<CR>", add_desc(opts, "nav outline"))
 
 -- Close alll inactive buffers
 vim.keymap.set("n", "<leader>ww", function()

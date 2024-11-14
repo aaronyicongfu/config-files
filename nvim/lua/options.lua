@@ -19,7 +19,7 @@ vim.opt.relativenumber = true       -- add numbers to each line on the left side
 vim.opt.showmode = false            -- we are experienced, wo don't need the "-- INSERT --" mode hint
 vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
-vim.opt.colorcolumn = "80"            -- vertical line at 80
+-- vim.opt.colorcolumn = "80"            -- vertical line at 80
 
 -- Searching
 vim.opt.ignorecase = true           -- ignore case in searches by default
