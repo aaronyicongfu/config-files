@@ -264,11 +264,16 @@ vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline=true, special="Gre
 
 require("lsp_signature").setup()
 
-require("aerial").setup({
+local aerial_defaults = require("aerial")
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
-  on_attach = function(bufnr)
-    -- Jump forwards/backwards with '{' and '}'
-    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-  end,
-})
+aerial_defaults.on_attach = function(bufnr)
+  -- Jump forwards/backwards with '{' and '}'
+  vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+  vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+end
+aerial_defaults.nav = aerial_defaults.nav or {}
+aerial_defaults.nav.keymaps = aerial_defaults.nav.keymaps or {}
+aerial_defaults.nav.keymaps["q"] = "actions.close"
+aerial_defaults.nav.keymaps["<Esc>"] = "actions.close"
+require("aerial").setup(aerial_defaults)
+aerial_defaults = nil
