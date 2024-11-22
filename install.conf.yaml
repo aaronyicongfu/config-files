@@ -3,8 +3,9 @@
       relink: true
 
 - link:
+    ~/.zshrc: zshrc
+    ~/.zshrc_user: zshrc_user
     ~/.tmux.conf: tmux.conf
-    ~/.vimrc: vimrc
-    ~/.bashrc: bashrc
+    ~/.config/nvim: nvim
     ~/.aliases: aliases
     ~/startup.m: startup.m
