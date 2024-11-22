@@ -89,3 +89,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -r ~/.zshrc_user ]]; then
   source ~/.zshrc_user
 fi
+
+# Load local-machine-specific confiuration
+if [[ -r ~/.zshrc_local ]]; then
+  source ~/.zshrc_local
+fi
