@@ -53,6 +53,7 @@ lspconfig.clangd.setup{
 }
 lspconfig.cmake.setup{}
 lspconfig.julials.setup{}
+lspconfig.texlab.setup{}
 
 
 -- Create an autocmd group for (fos) formatting-on-save
