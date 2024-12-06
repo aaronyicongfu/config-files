@@ -133,6 +133,9 @@ local plugins = {
       init = function()
         -- VimTeX configuration goes here, e.g.
         vim.g.vimtex_view_method = "skim"
+        vim.g.vimtex_quickfix_ignore_filters = {
+         'Overfull \\\\hbox',  -- we need to escape twice for lua + regex
+        }
       end
     }
 }
