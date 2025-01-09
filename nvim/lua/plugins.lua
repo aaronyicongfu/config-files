@@ -138,6 +138,7 @@ local plugins = {
         vim.g.vimtex_view_method = "skim"
         vim.g.vimtex_quickfix_ignore_filters = {
          'Overfull \\\\hbox',  -- we need to escape twice for lua + regex
+         'Underfull \\\\hbox',  -- we need to escape twice for lua + regex
         }
       vim.g.vimtex_view_skim_sync = 1
       vim.g.vimtex_view_skim_reding_bar = 1
