@@ -5,7 +5,7 @@ require('mason').setup()
 -- Ensure servers are there, if not, install them using mason
 require('mason-lspconfig').setup({
   -- install language servers
-  ensure_installed = {'lua_ls', 'pyright', 'clangd', 'cmake', 'julials'},
+  ensure_installed = {'lua_ls', 'pyright', 'clangd', 'cmake', 'julials', 'texlab'},
 })
 
 -- Ensure formatters are there, if not, install them using mason
