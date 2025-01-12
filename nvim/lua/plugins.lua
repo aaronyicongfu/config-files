@@ -21,6 +21,20 @@ local plugins = {
     {
         'nvim-telescope/telescope.nvim',  -- fuzzy finder
         dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = {
+          defaults = {
+              mappings = {
+                i = {
+                  ["<S-j>"] = function(...)
+                        require("telescope.actions").cycle_history_next(...)
+                  end,
+                  ["<S-k>"] = function(...)
+                        require("telescope.actions").cycle_history_prev(...)
+                  end,
+                },
+              },
+            },
+        }
     },
 
     -- below three work together for lsp functionality
