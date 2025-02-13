@@ -5,7 +5,7 @@ require('mason').setup()
 -- Ensure servers are there, if not, install them using mason
 require('mason-lspconfig').setup({
   -- install language servers
-  ensure_installed = {'lua_ls', 'pyright', 'clangd', 'cmake', 'julials'},
+  ensure_installed = {'lua_ls', 'pyright', 'clangd', 'cmake', 'julials', 'texlab'},
 })
 
 -- Ensure formatters are there, if not, install them using mason
@@ -53,6 +53,7 @@ lspconfig.clangd.setup{
 }
 lspconfig.cmake.setup{}
 lspconfig.julials.setup{}
+lspconfig.texlab.setup{}
 
 
 -- Create an autocmd group for (fos) formatting-on-save

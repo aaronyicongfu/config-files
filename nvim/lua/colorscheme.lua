@@ -4,5 +4,6 @@
 -- require('onedark').load()
 
 
-vim.cmd.colorscheme "catppuccin-mocha"
--- vim.cmd.colorscheme "catppuccin-latte"
+vim.cmd.colorscheme "catppuccin-mocha"  -- dark
+-- vim.cmd.colorscheme "catppuccin-latte"  -- light
+-- vim.cmd.colorscheme "tokyonight"

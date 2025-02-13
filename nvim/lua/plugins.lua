@@ -21,10 +21,27 @@ local plugins = {
     {
         'nvim-telescope/telescope.nvim',  -- fuzzy finder
         dependencies = { 'nvim-lua/plenary.nvim' },
+        opts = {
+          defaults = {
+              mappings = {
+                i = {
+                  ["<S-j>"] = function(...)
+                        require("telescope.actions").cycle_history_next(...)
+                  end,
+                  ["<S-k>"] = function(...)
+                        require("telescope.actions").cycle_history_prev(...)
+                  end,
+                },
+              },
+            },
+        }
     },
 
     -- below three work together for lsp functionality
+    {
     'neovim/nvim-lspconfig',         -- set up config so that neovim talks to lsp
+    version = 'v1.0.0'
+    },
     'williamboman/mason.nvim',            -- package manager to install lsp servers
     'williamboman/mason-lspconfig.nvim',  -- bridge the gap between mason and lspconfig
 
@@ -124,7 +141,71 @@ local plugins = {
           desc = "Buffer Local Keymaps (which-key)",
         },
       },
-    }
+    },
+    {
+      "lervag/vimtex",
+      lazy = false,     -- we don't want to lazy load VimTeX because VimTeX
+                        -- is already lazy-loaded
+      -- tag = "v2.15", -- uncomment to pin to a specific release
+      init = function()
+        -- VimTeX configuration goes here, e.g.
+        vim.g.vimtex_view_method = "skim"
+        vim.g.vimtex_quickfix_ignore_filters = {
+         'Overfull \\\\hbox',  -- we need to escape twice for lua + regex
+         'Underfull \\\\hbox',  -- we need to escape twice for lua + regex
+        }
+      vim.g.vimtex_view_skim_sync = 1
+      vim.g.vimtex_view_skim_reding_bar = 1
+      end
+    },
+    -- Cursor-AI-IDE-like experience
+    {
+      "yetone/avante.nvim",
+      event = "VeryLazy",
+      lazy = false,
+      version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
+      opts = {
+        -- add any opts here
+      },
+      -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+      build = "make",
+      -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+      dependencies = {
+        "stevearc/dressing.nvim",
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        --- The below dependencies are optional,
+        "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+        "zbirenbaum/copilot.lua", -- for providers='copilot'
+        {
+          -- support for image pasting
+          "HakonHarnes/img-clip.nvim",
+          event = "VeryLazy",
+          opts = {
+            -- recommended settings
+            default = {
+              embed_image_as_base64 = false,
+              prompt_for_file_name = false,
+              drag_and_drop = {
+                insert_mode = true,
+              },
+              -- required for Windows users
+              use_absolute_path = true,
+            },
+          },
+        },
+        {
+          -- Make sure to set this up properly if you have lazy=true
+          'MeanderingProgrammer/render-markdown.nvim',
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
+    },
+    "folke/tokyonight.nvim"
 }
 
 -- Specify options
@@ -277,3 +358,12 @@ aerial_defaults.nav.keymaps["q"] = "actions.close"
 aerial_defaults.nav.keymaps["<Esc>"] = "actions.close"
 require("aerial").setup(aerial_defaults)
 aerial_defaults = nil
+
+-- Avante: don't use esc to close the output window:
+-- https://github.com/yetone/avante.nvim/issues/917
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'Avante',
+    callback = function()
+        vim.keymap.set({'n', 'o'}, '<ESC>', '<Nop>', { buffer = true })
+    end
+})

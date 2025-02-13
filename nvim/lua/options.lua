@@ -24,3 +24,6 @@ vim.opt.splitright = true           -- open new horizontal splits right
 -- Searching
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+
+-- Recommended by avante
+vim.opt.laststatus = 3
