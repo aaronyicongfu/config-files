@@ -89,3 +89,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$IPOPT_DIR/lib
 
 # Julia
 export PATH=$PATH:/Applications/Julia-1.9.app/Contents/Resources/julia/bin
+
+# Update path
+export PATH=${PATH}:~/bin
