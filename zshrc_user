@@ -55,9 +55,6 @@ export TACS_DIR=$HOME/git/tacs
 export PAROPT_DIR=$HOME/git/paropt
 export EGADS_DIR=$HOME/git/egads4py
 
-# Update path
-export PATH=~/bin:${PATH}
-
 # Update python path
 export PYTHONPATH=${PYTHONPATH}:~/git/tacs
 export PYTHONPATH=${PYTHONPATH}:~/git/paropt
