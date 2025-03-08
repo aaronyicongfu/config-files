@@ -90,3 +90,17 @@ vim.keymap.set("n", "<leader>ww", function()
     end
   end
 end, { desc = "Close all inactive buffers" })
+
+-- copy buffer to the right split
+vim.keymap.set("n", "<leader>l", function()
+  local bufname = vim.api.nvim_buf_get_name(0) -- Get the current buffer name
+  vim.cmd("wincmd l")                         -- Move to the left split
+  vim.cmd("edit " .. bufname)                  -- Open the saved buffer
+end, { noremap = true, silent = true, desc = "copy buffer right" })
+
+-- copy buffer to the left split
+vim.keymap.set("n", "<leader>h", function()
+  local bufname = vim.api.nvim_buf_get_name(0) -- Get the current buffer name
+  vim.cmd("wincmd h")                         -- Move to the left split
+  vim.cmd("edit " .. bufname)                  -- Open the saved buffer
+end, { noremap = true, silent = true, desc = "copy buffer left" })
