@@ -44,7 +44,13 @@ lspconfig.lua_ls.setup{
     },
   }
 }
-lspconfig.pyright.setup{}
+lspconfig.pyright.setup{
+  settings = {
+    python = {
+      pythonPath = vim.fn.trim(vim.fn.system('which python'))
+    }
+  }
+}
 lspconfig.clangd.setup{
   cmd = {
     "clangd",
