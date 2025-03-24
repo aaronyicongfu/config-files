@@ -94,13 +94,17 @@ end, { desc = "Close all inactive buffers" })
 -- copy buffer to the right split
 vim.keymap.set("n", "<leader>l", function()
   local bufname = vim.api.nvim_buf_get_name(0) -- Get the current buffer name
+  local view = vim.fn.winsaveview() -- Save current view (scroll + cursor position)
   vim.cmd("wincmd l")                         -- Move to the left split
   vim.cmd("edit " .. bufname)                  -- Open the saved buffer
+  vim.fn.winrestview(view) -- Restore scroll position and cursor
 end, { noremap = true, silent = true, desc = "copy buffer right" })
 
 -- copy buffer to the left split
 vim.keymap.set("n", "<leader>h", function()
   local bufname = vim.api.nvim_buf_get_name(0) -- Get the current buffer name
+  local view = vim.fn.winsaveview() -- Save current view (scroll + cursor position)
   vim.cmd("wincmd h")                         -- Move to the left split
   vim.cmd("edit " .. bufname)                  -- Open the saved buffer
+  vim.fn.winrestview(view) -- Restore scroll position and cursor
 end, { noremap = true, silent = true, desc = "copy buffer left" })
